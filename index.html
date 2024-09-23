@@ -9,60 +9,32 @@
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    
-    <h1>Heladería Tino</h1>
-  <div class="container mt-5">
-    
+  <h1 class="text-center">Heladería Tino</h1>
+    <main>
+
+     <div class="container mt-5">
       <div class="d-flex justify-content-between align-items-center">
         <h2 class="productos-titulo">Productos</h2>
-        <!-- Icono de carrito de compras -->
+        
         <button type="button" class="btn btn-outline-secondary position-relative">
-          <a href="./carrito.html"><i class="bi bi-cart"></i></a> <!-- Icono de carrito de Bootstrap -->
+          <a href="./carrito.html"><i class="bi bi-cart"></i></a>
           <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
         </button>
       </div>
 
-    <!-- Sección de productos -->
-    <div id="contenedor-productos" class="row mt-4">
-      <div id="producto" class="col-md-4">
-        <div class="card" style="width: 18rem;">
-          <img class="img" src="./imagenes/palitodeheladoo.avif" class="producto-imagen card-img-top" alt="Palito de helado">
-          <div class="producto-detalle card-body">
-            <h5 class="prodcuto-titulo card-title">Palito de helado</h5>
-            <p class="producto-precio card-text">$1000</p>
-            <a href="#" class="producto-agregar btn btn-primary">Agregar al carrito</a>
-          </div>
-        </div>
+      
+      <div id="contenedor-productos" class="row justify-content-center mt-5">
+        <!--=====================================
+        =                Index JS               =
+        ======================================-->
       </div>
+     </div>
 
-      <div id="producto" class="col-md-4">
-        <div class="card" style="width: 18rem;">
-          <img src="./imagenes/potedehelado.jpg" class="producto-imagen card-img-top" alt="Pote de medio kilo">
-          <div class="producto-detalle card-body">
-            <h5 class="producto-titulo card-title">Pote de medio kilo</h5>
-            <p class="producto-precio card-text">$3000</p>
-            <a href="#" class="producto-agregar btn btn-primary">Agregar al carrito</a>
-          </div>
-        </div>
-      </div>
+    </main>
+    
+    
 
-      <div id="producto" class=" mb-5 col-md-4">
-        <div class="card" style="width: 18rem;">
-          <img src="./imagenes/potedehelado.jpg" class="producto-imagen card-img-top" alt="Pote de un kilo">
-          <div class="producto-detalle card-body">
-            <h5 class="producto-titulo card-title">Pote de un kilo</h5>
-            <p class="producto-precio card-text">$5500</p>
-            <a href="#" class="producto-agregar btn btn-primary">Agregar al carrito</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="./index.js"></script>
-  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./index.js"></script>
 </body>
 </html>
-
-
