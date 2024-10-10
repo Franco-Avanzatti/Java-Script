@@ -1,0 +1,20 @@
+[
+    {
+        "id": "heladoDePalito",
+        "titulo": "Helado de Palito",
+        "precio": 1000,
+        "imagen": "./imagenes/heladodepalito.jpg"
+    },
+    {
+        "id": "poteDeMedioKilo",
+        "titulo": "Pote de medio kilo",
+        "precio": 3000,
+        "imagen": "./imagenes/potedehelado.jpg"
+    },
+    {
+        "id": "poteDeKilo",
+        "titulo": "Pote de kilo",
+        "precio": 5500,
+        "imagen": "./imagenes/potedehelado.jpg"
+    }
+]

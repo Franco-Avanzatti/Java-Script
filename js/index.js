@@ -1,35 +1,18 @@
-const heladosTino = [
-    {
-        id: "heladoDePalito",
-        titulo: "Helado de Palito",
-        precio: 1000,
-        imagen: "./imagenes/heladodepalito.jpg"
-    },
-    {
-        id: "poteDeMedioKilo",
-        titulo: "Pote de medio kilo",
-        precio: 3000,
-        imagen: "./imagenes/potedehelado.jpg"
-    },
-    {
-        id: "poteDeKilo",
-        titulo: "Pote de kilo",
-        precio: 5500,
-        imagen: "./imagenes/potedehelado.jpg"
-    }
-];
-
-
 let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+let heladosTino = [];  
 
+fetch("./data.json")
+     .then((resp) => resp.json())
+     .then((data) => {
+        heladosTino = data; 
+        cargarProductos(heladosTino);
+     });
 
 const contenedorProductos = document.querySelector("#contenedor-productos");
-
-
 const contadorCarrito = document.querySelector(".badge");
 
 
-function cargarProductos() {
+function cargarProductos(heladosTino) {
     heladosTino.forEach(producto => {
         const div = document.createElement("div");
         div.classList.add("col-md-4", "d-flex", "justify-content-center", "mb-4");
@@ -46,34 +29,38 @@ function cargarProductos() {
         contenedorProductos.append(div);
     });
 
-    
     const botonesAgregar = document.querySelectorAll('.producto-agregar');
     botonesAgregar.forEach(boton => {
         boton.addEventListener('click', productoAgregar);
     });
 }
 
-
 function productoAgregar(e) {
-    e.preventDefault(); 
+    e.preventDefault();
     const idProducto = e.target.id; 
     const productoSeleccionado = heladosTino.find(producto => producto.id === idProducto);
-    
-    
-    carrito.push(productoSeleccionado);
 
-    
-    localStorage.setItem('carrito', JSON.stringify(carrito));
+    if (productoSeleccionado) {
+        const productoEnCarrito = carrito.find(item => item.id === productoSeleccionado.id);
+        
+        if (productoEnCarrito) {
+            productoEnCarrito.cantidad += 1; 
+        } else {
+            carrito.push({...productoSeleccionado, cantidad: 1});
+        }
 
-    
-    contadorCarrito.textContent = carrito.length;
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+        contadorCarrito.textContent = carrito.reduce((acc, item) => acc + item.cantidad, 0);
+    } else {
+        console.error('Producto no encontrado');
+    }
 }
 
 
 contadorCarrito.textContent = carrito.length;
 
 
-cargarProductos();
+
 
 
 
